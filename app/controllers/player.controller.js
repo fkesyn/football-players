@@ -43,7 +43,7 @@ exports.create = (req, res) => {
     name: req.body.name,
     position: req.body.position,
     overall: req.body.overall ,
-    nationality: req.body.position,
+    nationality: req.body.nationality,
     club: req.body.club ? req.body.club : 'no club',
     
   });
