@@ -33,8 +33,8 @@ exports.deleteAll = (req, res) => {
 
 exports.create = (req, res) => {
   // Validate request
-  if (!req.body.title) {
-    res.status(400).send({ message: "Content can not be empty!" });
+  if (!req.body.name || !req.body.position) {
+    res.status(400).send({ message: "Name and position and required!" });
     return;
   }
   
