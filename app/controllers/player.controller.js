@@ -80,7 +80,7 @@ exports.update = (req, res) => {
       res.status(404).send({
         message: `Cannot update Player with id=${id}. Maybe Player was not found!`
       });
-    } else res.send({ message: "Player was updated successfully." });
+    } else res.send({ success: true, message: "Player was updated successfully." });
   })
   .catch(err => {
     res.status(500).send({
@@ -100,6 +100,7 @@ exports.delete = (req, res) => {
       });
     } else {
       res.send({
+        success: true,
         message: "Player was deleted successfully!"
       });
     }
@@ -115,6 +116,7 @@ exports.deleteAll = (req, res) => {
   Player.deleteMany({})
   .then(data => {
     res.send({
+      success: true,
       message: `${data.deletedCount} Players were deleted successfully!`
     });
   })
