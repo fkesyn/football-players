@@ -37,7 +37,7 @@ exports.findAll = (req, res) => {
   const name = req.query.name;
   var condition = name ? { name: { $regex: new RegExp(name), $options: "i" } } : {};
   
-  Player.find(condition)
+  Player.find(condition).cache({expire:10})
   .then(data => {
     res.send(data);
   })
@@ -52,7 +52,7 @@ exports.findAll = (req, res) => {
 exports.findOne = (req, res) => {
   const id = req.params.id;
   
-  Player.findById(id)
+  Player.findById(id).cache({expire:10})
   .then(data => {
     if (!data)
       res.status(404).send({ message: "Not found Player with id " + id });
