@@ -18,7 +18,7 @@ module.exports = app => {
   // Delete a Player with id
   router.delete("/:id", players.delete);
   
-  // Create a new Player
+  // Delete all players
   router.delete("/", players.deleteAll);
 
 
